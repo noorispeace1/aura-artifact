@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  /* Unified Color Palette */
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-secondary);
+  --color-accent: var(--accent-violet);
+  --color-muted: var(--text-muted);
+  --color-background: var(--bg-secondary);
+  
+  /* Global Constraints & Spacing */
+  --spacing-btn: 3rem;       /* 48px standard button height */
+  --spacing-card: 1.5rem;    /* 24px uniform card padding */
+  --width-container: 80rem;  /* 1280px max-w-7xl universal wrapper */
+}
+
+/* ── Premium Global Background ─────────────────────────────────────────── */
+:root {
+  --bg-primary:     #f8f5ff;
+  --bg-secondary:   #ffffff;
+  --accent-violet:  #7c3aed;
+  --accent-indigo:  #4f46e5;
+  --accent-rose:    #e11d48;
+  --accent-amber:   #d97706;
+  --accent-teal:    #0d9488;
+  --text-primary:   #1a1033;
+  --text-muted:     #6b7280;
+  --border-subtle:  #ede9fe;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #f8f5ff 0%, #fdf4ff 40%, #eff6ff 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+/* ── Mesh noise overlay ─────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(124,58,237,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(79,70,229,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 40%, rgba(14,165,233,0.05) 0%, transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d8b4fe; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
+
+/* ── Utility animations ─────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(124,58,237,0.3); }
+  50%       { box-shadow: 0 0 40px rgba(124,58,237,0.6); }
+}
+
+.animate-fade-up   { animation: fadeUp 0.6s ease-out both; }
+.animate-float     { animation: float  3s ease-in-out infinite; }
+.animate-glow      { animation: glow-pulse 2s ease-in-out infinite; }
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #ede9fe 25%, #ddd6fe 50%, #ede9fe 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+/* ── Premium glass card ─────────────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.07);
+}
+
+/* ── Gradient text helper ───────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Vibrant button ─────────────────────────────────────────────────────── */
+.btn-vibrant {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.35);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.btn-vibrant:hover {
+  box-shadow: 0 8px 28px rgba(124,58,237,0.5);
+  transform: translateY(-1px);
+}
+
+/* ── Section divider wave ───────────────────────────────────────────────── */
+.wave-divider {
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z' fill='%23f8f5ff'/%3E%3C/svg%3E") no-repeat center bottom;
+  background-size: cover;
+}
