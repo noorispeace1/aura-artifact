@@ -131,7 +131,7 @@ export function Navbar() {
                   <Link href="/profile" title="View Profile">
                     <div className="w-8 h-8 bg-gradient-to-br from-violet-100 to-indigo-100 text-violet-700 rounded-full flex items-center justify-center font-bold text-xs uppercase shadow-sm border border-violet-200 hover:border-violet-300 hover:shadow-md transition-all">
                       {session.user.image ? (
-                        <img src={session.user.image} alt="Profile" className="w-full h-full object-cover rounded-full" />
+                        <img src={session.user.image || undefined} alt="Profile" className="w-full h-full object-cover rounded-full" />
                       ) : (
                         session.user.name?.charAt(0) || session.user.email?.charAt(0) || "U"
                       )}

@@ -359,7 +359,7 @@ export function DashboardShopLayout() {
                       <div className="relative w-full aspect-[4/3] bg-zinc-50/50 rounded-2xl mb-4 flex items-center justify-center p-4 overflow-hidden">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img 
-                          src={product.image} 
+                          src={product.image || undefined} 
                           alt={product.title}
                           className="max-h-full max-w-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110 mix-blend-multiply"
                         />
@@ -422,7 +422,7 @@ export function DashboardShopLayout() {
                 <div className="w-full aspect-square bg-zinc-50 rounded-2xl mb-4 flex items-center justify-center p-8 border border-zinc-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
-                    src={selectedProduct.image} 
+                    src={selectedProduct.image || undefined} 
                     alt={selectedProduct.title}
                     className="max-h-full max-w-full object-contain drop-shadow-xl"
                   />

@@ -352,7 +352,7 @@ export default function HomePage() {
           <div className="container mx-auto px-6">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-4xl font-black text-white mb-4">Loved by Thousands</h2>
-              <p className="text-zinc-400">Don't just take our word for it. Here is what our community of shoppers has to say.</p>
+              <p className="text-zinc-400">Don&apos;t just take our word for it. Here is what our community of shoppers has to say.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -368,7 +368,7 @@ export default function HomePage() {
                       <Star key={j} className={`w-4 h-4 ${j < review.rating ? 'fill-current' : 'text-zinc-700'}`} />
                     ))}
                   </div>
-                  <div className="text-zinc-300 mb-8 relative z-10 leading-relaxed font-medium">"{typeof review.text === 'string' ? review.text : review.text}"</div>
+                  <div className="text-zinc-300 mb-8 relative z-10 leading-relaxed font-medium">&quot;{typeof review.text === 'string' ? review.text : review.text}&quot;</div>
                   <div className="flex items-center gap-4">
                     <div className={`w-14 h-14 rounded-full overflow-hidden p-1 bg-gradient-to-br ${review.color}`}>
                       <img src={`https://i.pravatar.cc/150?img=${i+20}`} alt={review.name} className="w-full h-full rounded-full border-2 border-zinc-900 object-cover" />

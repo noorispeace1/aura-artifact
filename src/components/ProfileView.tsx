@@ -77,7 +77,7 @@ export function ProfileView() {
           {/* Profile Image */}
           <div className="relative group w-full max-w-[220px] aspect-square overflow-hidden bg-zinc-200">
             {profilePhoto ? (
-              <img src={profilePhoto} alt="Profile" className="w-full h-full object-cover" />
+              <img src={profilePhoto || undefined} alt="Profile" className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-zinc-300 text-zinc-500 font-bold text-6xl uppercase">
                 {fullName.charAt(0) || "U"}

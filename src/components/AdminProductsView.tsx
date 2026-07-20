@@ -100,7 +100,7 @@ export function AdminProductsView() {
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-white border border-zinc-100 rounded-xl flex items-center justify-center overflow-hidden shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={product.image} alt={product.title} className="w-10 h-10 object-contain" />
+                          <img src={product.image || undefined} alt={product.title} className="w-10 h-10 object-contain" />
                         </div>
                         <span className="font-bold text-zinc-900 line-clamp-2">{product.title}</span>
                       </div>
