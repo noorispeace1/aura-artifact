@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react"
 import { ProductCard, ProductProps } from "@/components/ProductCard"
-import { Search, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
+import { Search, ChevronDown, ChevronLeft, ChevronRight, ShoppingBag } from "lucide-react"
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<ProductProps[]>([])
@@ -194,15 +194,18 @@ export default function ProductsPage() {
         </div>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="flex flex-col animate-pulse">
-                <div className="bg-zinc-100 aspect-square rounded-2xl mb-4 w-full"></div>
-                <div className="h-3 bg-zinc-100 rounded w-1/3 mb-2"></div>
-                <div className="h-4 bg-zinc-100 rounded w-3/4 mb-4"></div>
-                <div className="h-4 bg-zinc-100 rounded w-1/4"></div>
+          <div className="flex flex-col items-center justify-center py-32">
+            <div className="relative flex items-center justify-center mb-6">
+              <div className="absolute inset-0 bg-violet-100 rounded-full animate-ping opacity-75" />
+              <div className="relative bg-white p-5 rounded-full border border-violet-100 shadow-[0_0_40px_rgba(124,58,237,0.15)] z-10 flex items-center justify-center">
+                <ShoppingBag className="w-8 h-8 text-violet-600 animate-bounce" />
               </div>
-            ))}
+              <div className="absolute w-28 h-28 rounded-full border-t-2 border-l-2 border-violet-500 animate-[spin_2s_linear_infinite]" />
+              <div className="absolute w-32 h-32 rounded-full border-b-2 border-r-2 border-fuchsia-500 animate-[spin_3s_linear_infinite_reverse]" />
+            </div>
+            <p className="text-zinc-500 font-medium tracking-widest uppercase text-xs animate-pulse">
+              Curating Artifacts...
+            </p>
           </div>
         ) : error ? (
           <div className="text-center py-20 bg-zinc-50 rounded-3xl border border-zinc-100">
