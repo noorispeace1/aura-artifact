@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { signIn } from "@/lib/auth-client"
 import Link from "next/link"
 
-export default function LoginPage() {
+function LoginContent() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -99,9 +99,17 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-[13px] text-zinc-500 mt-8">
-          Create an account <Link href="/register" className="font-medium text-[#006FEE] hover:underline">Register now</Link>
+          Don&apos;t have an account? <Link href="/register" className="font-medium text-zinc-900 hover:underline">Sign up</Link>
         </p>
       </div>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 p-4"><Loader2 className="w-8 h-8 animate-spin text-white" /></div>}>
+      <LoginContent />
+    </Suspense>
   )
 }
