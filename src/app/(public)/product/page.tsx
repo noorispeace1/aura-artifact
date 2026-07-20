@@ -87,9 +87,9 @@ export default function ProductsPage() {
     if (searchQuery.trim() !== "") {
       const query = searchQuery.toLowerCase()
       result = result.filter(p => 
-        p.title.toLowerCase().includes(query) || 
-        p.description.toLowerCase().includes(query) ||
-        p.category.toLowerCase().includes(query)
+        (p.title?.toLowerCase().includes(query) || false) || 
+        (p.description?.toLowerCase().includes(query) || false) ||
+        (p.category?.toLowerCase().includes(query) || false)
       )
     }
 
